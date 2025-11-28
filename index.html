@@ -40,7 +40,6 @@
       background-position: right center;
     }
 
-    /* dark overlay so video stands out */
     .side-panel::before {
       content: "";
       position: absolute;
@@ -79,14 +78,7 @@
       <div class="video-wrapper">
         <iframe
           id="ytplayer"
-          src="https://www.youtube.com/embed/videoseries?list=PLz_LdpRy1ZhK1J6bqOdff76xjYfQR7Rr9
-            &enablejsapi=1
-            &autoplay=1
-            &mute=1
-            &controls=0
-            &showinfo=0
-            &rel=0
-            &modestbranding=1"
+          src="https://www.youtube.com/embed/videoseries?list=PLz_LdpRy1ZhK1J6bqOdff76xjYfQR7Rr9&amp;enablejsapi=1&amp;autoplay=1&amp;mute=1&amp;controls=0&amp;showinfo=0&amp;rel=0&amp;modestbranding=1&amp;loop=1&amp;playlist=PLz_LdpRy1ZhK1J6bqOdff76xjYfQR7Rr9"
           allow="autoplay; encrypted-media; picture-in-picture; fullscreen"
           referrerpolicy="strict-origin-when-cross-origin"
           allowfullscreen>
@@ -105,9 +97,9 @@
       player = new YT.Player("ytplayer", {
         events: {
           onStateChange: function (event) {
-            // 0 = playlist ended
+            // 0 = ended
             if (event.data === 0) {
-              player.playVideo(); // restart
+              player.playVideo(); // restart playlist
             }
           }
         }
